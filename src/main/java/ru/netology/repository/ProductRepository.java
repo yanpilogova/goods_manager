@@ -21,9 +21,7 @@ public class ProductRepository {
     }
     public void add (Product product) {
         Product[] tmp = new Product[products.length + 1];
-        for (int i = 0; i < products.length; i++) {
-            tmp[i] = products[i];
-        }
+        System.arraycopy(products, 0, tmp, 0, products.length);
         tmp[tmp.length - 1] = product;
         products = tmp;
     }
@@ -31,7 +29,6 @@ public class ProductRepository {
     public Product[] findAll() {
         return getProducts();
     }
-
 
     public void removeById(int id) {
         Product[] tmp = new Product[products.length -1];
