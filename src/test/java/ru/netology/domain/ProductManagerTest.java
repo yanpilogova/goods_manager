@@ -19,7 +19,7 @@ class ProductManagerTest {
     @Test
     void addProducts() {
         Product bookOne = new Book(1, "Cake book", 1010, "Ivanov A.V.");
-        Product smartphoneOne = new Smartphone(3,"Nokia",11200, "Nokia Lmt");
+        Product smartphoneOne = new Smartphone(3, "Nokia", 11200, "Nokia Lmt");
 
         Product[] expected = new Product[]{bookOne, smartphoneOne};
         ProductManager manager = new ProductManager();
@@ -40,7 +40,7 @@ class ProductManagerTest {
         Product[] expected = new Product[0];
         ProductManager manager = new ProductManager();
         manager.add(bookOne);
-        manager.removedByID(1);
+        manager.removedById(1);
 
         assertArrayEquals(expected, manager.findAll());
     }
@@ -48,7 +48,7 @@ class ProductManagerTest {
     @Test
     void searchByName() {
         Product bookOne = new Book(1, "Cake book", 1010, "Ivanov A.V.");
-        Product smartphoneOne = new Smartphone(3,"Nokia",11200, "Nokia Lmt");
+        Product smartphoneOne = new Smartphone(3, "Nokia", 11200, "Nokia Lmt");
 
         Product[] expected = new Product[]{bookOne};
         ProductManager manager = new ProductManager();

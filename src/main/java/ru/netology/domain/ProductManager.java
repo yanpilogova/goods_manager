@@ -7,6 +7,7 @@ public class ProductManager {
 
     public ProductManager() {
     }
+
     public ProductManager(ProductRepository repository) {
         this.repository = repository;
     }
@@ -19,24 +20,24 @@ public class ProductManager {
         this.repository = repository;
     }
 
-        public void add(Product product) {
+    public void add(Product product) {
         repository.add(product);
     }
 
-    public Product[] findAll (){
+    public Product[] findAll() {
         return repository.findAll();
     }
 
-    public void removedByID(int id) {
-         repository.removeById(id);
-        }
+    public void removedById(int id) {
+        repository.removeById(id);
+    }
 
-public Product[] searchBy(String text){
+    public Product[] searchBy(String text) {
         Product[] result = new Product[0];
-        for (Product product: repository.findAll()){
-            if (matches(product, text)){
-                Product[] tmp = new Product[result.length +1];
-                for (int i =0; i< result.length; i++) {
+        for (Product product : repository.findAll()) {
+            if (matches(product, text)) {
+                Product[] tmp = new Product[result.length + 1];
+                for (int i = 0; i < result.length; i++) {
                     tmp[i] = result[i];
                 }
                 tmp[tmp.length - 1] = product;
@@ -44,13 +45,13 @@ public Product[] searchBy(String text){
             }
         }
         return result;
-}
-    public boolean matches(Product product, String search) {
-       if (product.getName().contains(search)){
-           return true;
-       }
-       else {return false;
-       }
     }
 
+    public boolean matches(Product product, String search) {
+        if (product.getName().contains(search)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
